@@ -2,6 +2,7 @@ import { useActiveListings, useContract, MediaRenderer } from "@thirdweb-dev/rea
 import { ListingType } from "@thirdweb-dev/sdk";
 import { BanknotesIcon, ClockIcon } from "@heroicons/react/24/outline";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 
 
@@ -11,7 +12,7 @@ const Home = () => {
   const { data: listings, isLoading: loadingListings } = useActiveListings(contract);
   
   return (
-    <div>      
+    <div className="bg-[#fefefe]">      
 
       <Header />
 
@@ -24,7 +25,7 @@ const Home = () => {
             {listings?.map((listing) => (
               <div
                 key={listing.id}
-                className="flex flex-col card hover:scale-105 transition-all duration-150 ease-out"
+                className="flex flex-col card hover:scale-105 transition-all duration-150 ease-out bg-inherit"
               >
                 <div className="flex-1 flex flex-col items-center pb-2 ">
                   <MediaRenderer className="w-44 rounded-xl" src={listing.asset.image} />
@@ -32,7 +33,7 @@ const Home = () => {
 
                 <div className="pt-2 space-y-4">
                   <div>
-                    <h2 className="text-lg font-semibold truncate tracking-widest">{listing.asset.name}</h2>
+                    <h2 className="text-lg font-semibold truncate tracking-wide">{listing.asset.name}</h2>
                     <hr />
                     <p className="truncate text-[15px] text-gray-400 mt-2">{listing.asset.description}</p>
                   </div>
@@ -65,6 +66,8 @@ const Home = () => {
         )}
 
       </main>
+
+      <Footer />
 
     </div>
   )

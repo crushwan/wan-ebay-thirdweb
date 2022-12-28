@@ -4,11 +4,11 @@
 
 @layer components {
   .connectWalletBtn {
-    @apply bg-orange-500 text-white font-bold py-2 px-4 rounded cursor-pointer;
+    @apply bg-orange-500 text-white font-bold py-2 px-4 rounded-[3px] cursor-pointer;
   }
 
   .headerLink {
-    @apply hidden md:inline-flex cursor-pointer text-gray-500 hover:text-orange-500 transition-all duration-300;
+    @apply hidden md:inline-flex hover:underline cursor-pointer text-gray-500 hover:text-orange-500 transition-all duration-300 font-semibold;
   }
 
   .link {
@@ -16,6 +16,11 @@
   }
 
   .card {
-    @apply border border-gray-200 rounded-md p-5 bg-white hover:bg-gray-50/30 cursor-pointer;
+    @apply border border-gray-200 rounded-md p-5 hover:bg-white hover:drop-shadow-md cursor-pointer;
   }
+
+  .formField {
+    @apply border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm outline-none;
+  }
+
 }
