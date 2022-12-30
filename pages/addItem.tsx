@@ -45,7 +45,7 @@ function addItem({}: Props) {
       const nft = await tx.data();
 
       console.log(receipt,tokenId,nft);
-
+      toast.success("Mint Item Success")
       router.push("/");
 
     } catch (error) {

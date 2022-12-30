@@ -337,9 +337,21 @@ function ListingPage({}: Props) {
               onChange={(e) => setBidAmount(e.target.value)}
               placeholder={formatPlaceholder()}
             />
-            <button onClick={createBidOrOffer} className="bg-red-500 font-bold text-white
+            {/* <button onClick={createBidOrOffer} className="bg-red-500 font-bold text-white
             rounded-full w-44 py-4 px-10">
               {listing.type === ListingType.Direct ? 'Offer' : 'Bid'}
+            </button> */}
+            <button
+              onClick={createBidOrOffer}
+              className={`bg-red-600 font-bold text-white rounded-full w-44 py-4 px-10 ${
+                processingOffer ? "disabled" : ""
+              }`}
+            >
+              {processingOffer
+                ? "Processing..."
+                : listing?.type === ListingType.Direct
+                ? "Offer"
+                : "Bid"}
             </button>
           </div>
         </section>
