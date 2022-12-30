@@ -55,7 +55,7 @@ function Header({}: Props) {
             <Image
               className="h-full w-full object-contain md:px-5"
               alt="Thirdweb Logo"
-              src="vercel.svg"
+              src="/lalala.png"
               width={100}
               height={100}
             />

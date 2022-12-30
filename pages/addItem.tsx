@@ -4,6 +4,7 @@ import { useAddress, useContract } from "@thirdweb-dev/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import Footer from "../components/Footer";
+import toast, { Toaster } from 'react-hot-toast';
 
 type Props = {}
 
@@ -21,7 +22,7 @@ function addItem({}: Props) {
     if (!contract || !address) return;
 
     if (!image) {
-      alert('Please select an image');
+      toast.error('Please select an image');
       return;
     }
 

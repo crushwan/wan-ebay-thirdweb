@@ -14,6 +14,7 @@ import { NATIVE_TOKEN_ADDRESS, NFT } from "@thirdweb-dev/sdk";
 import network from "../utils/network";
 import { useRouter } from "next/router";
 import Footer from "../components/Footer";
+import toast, { Toaster } from "react-hot-toast";
 
 type Props = {}
 
@@ -60,6 +61,10 @@ function Create({}: Props) {
     const { listingType, price } = target.elements;
 
     if(listingType.value === 'directListing') {
+      toast("Creating listing...", {
+        icon: "⌛",
+      });
+
       createDirectListing({
         assetContractAddress: process.env.NEXT_PUBLIC_COLLECTION_CONTRACT!,
         tokenId: selectedNft.metadata.id,
@@ -70,17 +75,21 @@ function Create({}: Props) {
         startTimestamp: new Date(),
     }, {
       onSuccess(data, variables, context) {
-        console.log('Success: ',data, variables, context);
+        toast.success("Successfully Listed!");
         router.push('/');
         },
         onError(error, variables, context) {
-          console.log('Error: ',error, variables, context);
+          toast.error("Could not list. Try again later.");
           },
         }
       );
     };
 
     if(listingType.value === 'auctionListing') {
+      toast("Creating auction...", {
+        icon: "⌛",
+      });
+
       createAuctionListing({
         assetContractAddress: process.env.NEXT_PUBLIC_COLLECTION_CONTRACT!,
         tokenId: selectedNft.metadata.id,
@@ -92,11 +101,12 @@ function Create({}: Props) {
         reservePricePerToken: 0,
       }, {
         onSuccess(data, variables, context) {
-          console.log('Success: ',data, variables, context);
+          toast.success("Successfully Listed the Auction!");
           router.push('/');
         }, 
         onError(error, variables, context) {
-          console.log('Error: ',error, variables, context);
+          toast.error("Could not list. Try again later.");
+          // console.log('Error: ',error, variables, context);
         },
       })
     };
