@@ -10,7 +10,7 @@ function Footer({ styles }: Props) {
       <div className="p-3 border-t-[1px] border-t-gray-300">
 
         <p className="font-poppins font-normal text-center text-[13px] leading-[20px] text-gray-600 tracking-wider">
-          Copyright Ⓒ 2022 crushwan. All Rights Reserved.
+          Copyright Ⓒ 2022 Wan. All Rights Reserved.
         </p>     
         
       </div>
